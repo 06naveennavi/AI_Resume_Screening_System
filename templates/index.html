@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Screening & Job Recommendation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4">AI Resume Screening & Job Recommendation</h1>
+            <p class="lead text-muted">Upload your PDF resume to discover top job matches based on your skills.</p>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Resume Upload</h5>
+                <p class="card-text">Select a resume PDF and click Analyze to generate skill extraction and job recommendations.</p>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-warning" role="alert">
+                            {% for message in messages %}
+                                <div>{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="resume">Choose PDF Resume</label>
+                        <input type="file" class="form-control-file" id="resume" name="resume" accept="application/pdf" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Analyze Resume</button>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-5 text-center text-muted">
+            <p>Built with Python, Flask, NLP, and Bootstrap.</p>
+        </footer>
+    </div>
+</body>
+</html>
