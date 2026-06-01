@@ -1,24 +1,31 @@
 # AI Resume Screening & Job Recommendation System
 
 ## Project Overview
-This project provides a production-ready AI-powered resume screening and job recommendation platform. Users upload a PDF resume, the system extracts text and skills from the resume, compares the candidate's skills against job descriptions, computes match percentages, and recommends the top 3 most suitable jobs.
+This project provides an AI-powered resume screening and job recommendation platform. Users upload a PDF resume, the system extracts text and skills from the resume, compares the candidate's skills against job descriptions, computes match percentages, and recommends the top 3 most suitable jobs.
 
 ## Features
 - Upload a PDF resume via a responsive web UI
-- Extract clean resume text using `pdfplumber`
+- Extract resume text using pdfplumber
 - Detect professional skills using keyword matching
 - Compare extracted skills with job requirements
-- Compute job match scores using `TfidfVectorizer` and cosine similarity
+- Compute job match scores using TF-IDF and cosine similarity
 - Recommend the top 3 most relevant job roles
-- Display results with extracted skills, missing skills, and match percentage
+- Display extracted skills, missing skills, and match percentages
 
 ## Tech Stack
-- Backend: Python, Flask
-- Machine Learning / NLP: Pandas, NumPy, Scikit-learn, NLTK, PDFPlumber
-- Frontend: HTML, CSS, Bootstrap
+- Python
+- Flask
+- Pandas
+- NumPy
+- Scikit-learn
+- NLTK
+- PDFPlumber
+- HTML
+- CSS
+- Bootstrap
 
 ## Folder Structure
-```
+
 AI_Resume_Screening_System/
 ├── app.py
 ├── resume_parser.py
@@ -28,91 +35,93 @@ AI_Resume_Screening_System/
 ├── jobs.csv
 ├── requirements.txt
 ├── README.md
-│
 ├── templates/
-│   ├── index.html
-│   └── result.html
-│
+│ ├── index.html
+│ └── result.html
 ├── static/
-│   └── style.css
-│
+│ └── style.css
 ├── uploads/
-│
 └── model/
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/06naveennavi/AI_Resume_Screening_System.git
 ```
 
-## Installation Steps
-1. Clone or download the repository.
-2. Navigate to the project directory:
-   ```bash
-   cd AI_Resume_Screening_System
-   ```
-3. Create a virtual environment (recommended):
-   ```bash
-   python -m venv venv
-   ```
-4. Activate the virtual environment:
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS / Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-5. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. Navigate to the project folder
 
-## Running the Project
-1. Start the Flask application:
-   ```bash
-   python app.py
-   ```
-2. Open a browser and go to:
-   ```text
-   http://127.0.0.1:5000/
-   ```
-3. Upload a PDF resume and click **Analyze Resume**.
+```bash
+cd AI_Resume_Screening_System
+```
 
-## Expected Outputs
-- Home page with a professional resume upload form
-- Resume upload should lead to a results page
-- Results page will show:
-  - Extracted skills from the resume
-  - Top 3 recommended jobs
-  - Job match percentage for each recommendation
-  - Missing skills for each recommended job
-  - Parsed resume text preview
+3. Create a virtual environment
 
-## Sample Datasets
-- `jobs.csv` contains 20 job roles and required skills
-- `resumes.csv` contains 50 sample candidate records
+```bash
+python -m venv venv
+```
 
-## Deployment Instructions for Render
-1. Create a new Web Service in Render.
-2. Connect your GitHub repository containing this project.
-3. Set the build command:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Set the start command:
-   ```bash
-   gunicorn app:app
-   ```
-5. Ensure the web service is configured to use Python and the correct root directory.
-6. Deploy the service.
+4. Activate the environment
 
-## Future Scope
-- Add OCR support for scanned resumes
-- Expand skill extraction with NLP entity recognition
-- Add user authentication and resume history
-- Enable company-specific job recommendations
-- Add a dashboard for analytics and candidate comparison
+Windows:
 
-## Resume Bullet Points
-- Built an AI resume screening system using Flask and NLP to extract candidate skills from PDFs.
-- Developed a recommendation engine using TF-IDF and cosine similarity to match skills with job requirements.
-- Designed a polished Bootstrap web UI for resume upload and candidate-job recommendation display.
-- Created sample datasets with 20 job roles and 50 candidate resumes for testing and validation.
+```bash
+venv\Scripts\activate
+```
+
+5. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run the Project
+
+```bash
+python app.py
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
+
+## Expected Output
+
+- Resume upload page
+- Skill extraction from PDF resumes
+- Top 3 recommended jobs
+- Match percentage for each job
+- Missing skills analysis
+
+## Deployment on Render
+
+Build Command:
+
+```bash
+pip install -r requirements.txt
+```
+
+Start Command:
+
+```bash
+gunicorn app:app
+```
+
+## Future Enhancements
+
+- OCR support for scanned resumes
+- Advanced NLP-based skill extraction
+- User authentication
+- Resume history tracking
+- Recruiter dashboard
+
+## Resume Highlights
+
+- Developed an AI-based resume screening system using Flask and NLP.
+- Implemented TF-IDF and cosine similarity for job recommendations.
+- Built a responsive web interface for resume analysis.
+- Created datasets for testing candidate-job matching accuracy.
